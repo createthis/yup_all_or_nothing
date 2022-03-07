@@ -1,0 +1,43 @@
+{
+  "presets": [
+    [
+      "@babel/env",
+      {
+        "useBuiltIns": "usage",
+        "corejs": "3",
+        "targets": {
+          "node": "current"
+        },
+      },
+    ],
+    "@babel/react"
+  ],
+  "plugins": [
+    "add-module-exports",
+    "@babel/plugin-proposal-object-rest-spread",
+    "babel-plugin-root-import",
+    "@babel/plugin-proposal-class-properties",
+    "@babel/plugin-proposal-private-methods"
+  ],
+  "env": {
+    "test": {
+      "plugins": [
+        "css-modules-transform",
+        ["istanbul", {
+          "extension": [
+            ".jsx",
+            ".js"
+          ],
+          "exclude": [
+            "**/server.js",
+            "**/*.spec.js",
+            "**/build/**",
+            "**/*.spec.js",
+            "**/test_helpers/**",
+            "**/test/**"
+          ]
+        }]
+      ]
+    }
+  }
+}
